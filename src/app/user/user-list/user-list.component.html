@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>User List</h2>
+    </div>
+    <div class="panel-body">
+      <table cellspacing="0" width="100%">
+
+        <thead>
+          <tr>
+            <th >Name</th>
+            <th >Email</th>
+            <th >Age</th>
+            <th >Phone</th>
+            <th>Created on</th>
+            <th>Status</th>
+            <th>Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user.user_name}}</td>
+            <td>{{user.user_email}}</td>
+            <td>{{user.user_age}}</td>
+            <td>{{user.user_phone}}</td>
+            <td>{{user.created_on}}</td>
+            <td>{{user.user_status}}</td>
+            <td>{{user.user_id}}</td>
+              <td><button style='margin-right:16px' (click)="deleteUser(user.user_id)" class="btn btn-danger">Delete</button>
+                <button style='margin-right:16px' (click)="updateUser(user.user_id)" class="btn btn-success" style="margin-left: 10px">Edit details</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

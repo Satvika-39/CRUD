@@ -1,0 +1,39 @@
+<h3>Create User</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()" ngNativeValidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.user_name" name="name" required minlength="4"/>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert">
+
+  <div *ngIf="name.errors?.['required']">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div>  
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email Id</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.user_email" name="email" pattern="/^[a-zA-Z0-9@.*$/" oninvalid="setCustomValidity('Please enter a valid e-mail id.')" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Phone number</label>
+      <input type="text" class="form-control" id="phone" required [(ngModel)]="user.user_phone" name="phone" pattern="[1-9]{1}[0-9]{9}" oninvalid="setCustomValidity('Phone number should be 10 numbers.')" required/>
+    </div>
+    <div class="form-group">
+      <label for="name">Age</label>
+      <input type="text" class="form-control" id="Age" required [(ngModel)]="user.user_age" name="Age" pattern="[1-9]|[1-9][0-9]|[1][0-4][0-9]|150" oninvalid="setCustomValidity('Age must be between 1-100')" required/>
+    </div>
+    <div class="form-group">
+      <label for="name">Status</label>
+      <input type="text" class="form-control" id="Status" required [(ngModel)]="user.user_status" name="Status">
+    </div>
+
+    <button class="btn btn-success">Submit</button>
+  </div>
+  </form>
+</div>
